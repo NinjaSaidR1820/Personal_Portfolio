@@ -12,10 +12,6 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto relative z-10 max-w-5xl text-center">
-        <div className="inline-flex items-center space-x-2 bg-muted px-4 py-1.5 rounded-full mb-8 border border-border animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="text-xs font-bold uppercase tracking-wider text-primary font-headline">👋 Hola, soy Denis Said Rivas</span>
-        </div>
-
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tight font-headline animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
           Transformo <span className="text-primary italic">datos</span> y código en <br />
           <span className="text-secondary">soluciones</span> de impacto.
