@@ -20,15 +20,21 @@ export function Hero() {
       <div className="container mx-auto relative z-10 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
           <div className="order-2 lg:order-1">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight font-headline animate-in fade-in slide-in-from-left duration-700">
+            <h1 className="text-4xl md:text-6xl font-black mb-8 tracking-tight font-headline animate-in fade-in slide-in-from-left duration-700 leading-tight">
               Transformo datos y código en <span className="text-primary">soluciones tecnológicas</span> que impulsan resultados.
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed font-body">
-              Denis Said Rivas Sánchez<br/>
-              <span className="text-primary font-bold">Ingeniero de Sistemas, Developer & IT Support Analista</span><br/>
-              Egresado de la UNI. Combino mi pasión por el desarrollo, la ciberseguridad y el análisis de datos para construir infraestructuras sólidas.
-            </p>
+            <div className="mb-10 animate-in fade-in slide-in-from-left duration-700 delay-200">
+              <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
+                Denis Said Rivas Sánchez
+              </h2>
+              <p className="text-lg md:text-xl font-bold text-primary mb-4">
+                Ingeniero de Sistemas, Developer & IT Support Analista
+              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body">
+                Egresado de la UNI. Combino mi pasión por el desarrollo, la ciberseguridad y el análisis de datos para construir infraestructuras sólidas.
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Button size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 h-14 text-lg font-headline group" asChild>
@@ -57,12 +63,12 @@ export function Hero() {
           <div className="order-1 lg:order-2 flex justify-center animate-in fade-in slide-in-from-right duration-1000">
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-              <div className="relative w-full h-full rounded-[3rem] overflow-hidden border-4 border-white/5 matte-shadow">
+              <div className="relative w-full h-full rounded-[3rem] overflow-hidden border-4 border-white/5 matte-shadow group">
                 <Image
                   src={profileImage?.imageUrl || ''}
                   alt="Denis Said Rivas Sánchez"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                   data-ai-hint="professional portrait"
                 />
               </div>
