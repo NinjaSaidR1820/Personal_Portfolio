@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "E-commerce platform interface",
+      "imageUrl": "https://picsum.photos/seed/devforge1/800/600",
+      "imageHint": "ecommerce dashboard"
+    },
+    {
+      "id": "project-2",
+      "description": "Financial analytics dashboard",
+      "imageUrl": "https://picsum.photos/seed/devforge2/800/600",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "project-3",
+      "description": "Cybersecurity monitor tool",
+      "imageUrl": "https://picsum.photos/seed/devforge3/800/600",
+      "imageHint": "security network"
+    },
+    {
+      "id": "project-4",
+      "description": "Cloud infrastructure diagram",
+      "imageUrl": "https://picsum.photos/seed/devforge4/800/600",
+      "imageHint": "cloud computing"
+    }
+  ]
 }
