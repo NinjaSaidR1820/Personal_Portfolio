@@ -11,7 +11,7 @@ export function Hero() {
   const profileImage = PlaceHolderImages.find(img => img.id === 'profile-photo');
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden py-12">
+    <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden py-24 sm:py-12">
       <div className="absolute inset-0 z-0 opacity-20">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-accent/20 rounded-full blur-[100px]" />

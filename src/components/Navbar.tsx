@@ -19,8 +19,8 @@ export function Navbar() {
 
   return (
     <nav className={cn(
-      "fixed left-1/2 -translate-x-1/2 z-50 bg-background/80 backdrop-blur-xl border border-border/50 p-2 rounded-full shadow-2xl flex items-center gap-1 w-[95%] max-w-fit transition-all duration-300",
-      "sm:top-6 bottom-8" // Desktop arriba, Móvil abajo con margen
+      "fixed left-1/2 -translate-x-1/2 z-50 bg-background/90 backdrop-blur-xl border border-white/10 p-1.5 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-1 w-auto max-w-[95vw] transition-all duration-300",
+      "bottom-6 sm:bottom-auto sm:top-6" // Abajo en móvil, Arriba en escritorio
     )}>
       {navItems.map((item) => {
         const Icon = item.icon;
@@ -30,14 +30,17 @@ export function Navbar() {
             key={item.href}
             href={item.href}
             className={cn(
-              "flex items-center gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-300",
+              "flex items-center gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-sm font-bold transition-all duration-300 whitespace-nowrap",
               isActive 
-                ? "bg-primary text-white shadow-lg shadow-primary/20 scale-105" 
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                ? "bg-primary text-white shadow-lg shadow-primary/20" 
+                : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
             )}
           >
-            <Icon className="w-4 h-4" />
-            <span className="hidden xs:inline sm:inline">{item.label}</span>
+            <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span className={cn(
+              "hidden sm:inline",
+              isActive && "inline" // Mostrar siempre el texto si está activo para mejor UX
+            )}>{item.label}</span>
           </Link>
         );
       })}
