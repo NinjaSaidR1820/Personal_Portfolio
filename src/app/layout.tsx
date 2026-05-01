@@ -3,8 +3,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'DevForge Portfolio | Crafting Digital Excellence',
-  description: 'A world-class engineering portfolio showcasing projects, skills, and AI-powered insights.',
+  title: 'Denis Said Rivas | Ingeniero en Sistemas, Desarrollador & Especialista IT',
+  description: 'Portafolio de Denis Said Rivas, egresado de Ingeniería en Sistemas en Nicaragua. Experiencia en desarrollo de software, análisis de datos con Power BI, soporte técnico y ciberseguridad.',
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

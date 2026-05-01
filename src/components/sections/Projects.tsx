@@ -3,89 +3,92 @@ import React from 'react';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Award, Database, BarChart3, Code } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-const projects = [
-  {
-    id: 1,
-    title: 'Nexus Analytics',
-    description: 'Real-time data streaming and visualization engine built for enterprise scale.',
-    tags: ['Next.js', 'Go', 'Redis'],
-    image: PlaceHolderImages[0],
-  },
-  {
-    id: 2,
-    title: 'Cipher Shield',
-    description: 'Advanced end-to-end encryption layer for cloud-native applications.',
-    tags: ['Rust', 'AWS', 'Security'],
-    image: PlaceHolderImages[1],
-  },
-  {
-    id: 3,
-    title: 'Quantum Commerce',
-    description: 'Hyper-personalized shopping experience powered by machine learning.',
-    tags: ['TypeScript', 'Tailwind', 'Python'],
-    image: PlaceHolderImages[2],
-  },
-];
-
 export function Projects() {
+  const projectAngel = PlaceHolderImages.find(img => img.id === 'project-angel');
+
   return (
-    <section className="py-24 bg-background">
+    <section id="proyectos" className="py-24 bg-background">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="mb-16">
-          <h2 className="text-secondary font-headline font-bold uppercase tracking-widest text-sm mb-4">Portfolio</h2>
-          <h3 className="text-4xl md:text-5xl font-black font-headline text-foreground">Featured Creations</h3>
+        <div className="mb-16 text-center">
+          <h2 className="text-primary font-headline font-bold uppercase tracking-widest text-sm mb-4">Innovación en Acción</h2>
+          <h3 className="text-4xl md:text-5xl font-black font-headline text-foreground">Proyectos que Resuelven Problemas</h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <Card key={project.id} className="group overflow-hidden border-border bg-card hover:shadow-xl transition-all duration-500 rounded-3xl">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={project.image.imageUrl}
-                  alt={project.title}
-                  width={600}
-                  height={450}
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  data-ai-hint={project.image.imageHint}
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <Button size="icon" variant="secondary" className="rounded-full">
-                    <Github className="w-5 h-5" />
-                  </Button>
-                  <Button size="icon" variant="secondary" className="rounded-full">
-                    <ExternalLink className="w-5 h-5" />
-                  </Button>
-                </div>
+        {/* Proyecto Estrella */}
+        <Card className="group overflow-hidden border-border bg-card hover:shadow-2xl transition-all duration-500 rounded-[2rem] mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="relative aspect-video lg:aspect-auto overflow-hidden">
+              <Image
+                src={projectAngel?.imageUrl || ''}
+                alt="Proyecto Clínica El Ángel"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                data-ai-hint="medical dashboard analytics"
+              />
+              <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg z-20 font-bold text-sm">
+                <Award className="w-4 h-4" /> 2.º Lugar Feria Nacional 2023
               </div>
-              <div className="p-8">
-                <div className="flex gap-2 mb-4">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="text-[10px] uppercase font-bold tracking-tighter px-2 py-0.5 bg-muted rounded-md text-muted-foreground">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <h4 className="text-2xl font-headline font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h4>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">
-                  {project.description}
-                </p>
-                <Button variant="link" className="p-0 h-auto text-accent font-bold group-hover:translate-x-1 transition-transform">
-                  Explore Details <ExternalLink className="ml-2 w-4 h-4" />
-                </Button>
-              </div>
-            </Card>
-          ))}
-
-          {/* Future Project Placeholder */}
-          <Card className="flex flex-col items-center justify-center p-12 border-dashed border-2 bg-muted/20 group hover:bg-muted/30 transition-colors rounded-3xl">
-            <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mb-4 group-hover:animate-pulse">
-              <span className="text-2xl font-headline font-bold text-muted-foreground">+</span>
             </div>
-            <p className="text-muted-foreground font-headline font-medium">Coming Soon</p>
-            <p className="text-xs text-muted-foreground/60 mt-2 text-center italic font-body">Next big thing is in the forge...</p>
+            <div className="p-8 lg:p-12 flex flex-col justify-center">
+              <h4 className="text-3xl font-headline font-black mb-6 flex items-center gap-3">
+                <span className="text-primary">01.</span> Sistema Integral Clínica El Ángel
+              </h4>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h5 className="font-bold text-sm uppercase text-accent mb-2">El Reto</h5>
+                  <p className="text-muted-foreground text-sm font-body leading-relaxed">
+                    Modernizar la gestión de pacientes, recetas e inventarios médicos que generaban cuellos de botella críticos.
+                  </p>
+                </div>
+                <div>
+                  <h5 className="font-bold text-sm uppercase text-secondary mb-2">El Impacto</h5>
+                  <p className="text-muted-foreground text-sm font-body leading-relaxed">
+                    Reducción del 60% en tiempos de atención y trazabilidad total mediante procesos automatizados.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-8">
+                {['Power BI', 'SQL Server', 'ETL', 'DataCube', 'C#'].map(tag => (
+                  <span key={tag} className="px-3 py-1 bg-muted rounded-lg text-xs font-bold text-muted-foreground border border-border">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <Button className="w-fit rounded-full bg-accent hover:bg-accent/90 text-white font-bold px-8">
+                Explorar caso de estudio <ExternalLink className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+        </Card>
+
+        {/* Otros servicios/áreas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="p-8 border-border bg-card rounded-3xl hover:border-primary/50 transition-colors">
+            <BarChart3 className="w-10 h-10 text-primary mb-6" />
+            <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Análisis de Datos</h4>
+            <p className="text-muted-foreground text-sm font-body leading-relaxed">
+              Transformación de datos crudos en dashboards accionables con Power BI para la toma de decisiones.
+            </p>
+          </Card>
+          <Card className="p-8 border-border bg-card rounded-3xl hover:border-accent/50 transition-colors">
+            <Database className="w-10 h-10 text-accent mb-6" />
+            <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Soporte IT Corporativo</h4>
+            <p className="text-muted-foreground text-sm font-body leading-relaxed">
+              Administración de infraestructura crítica, Active Directory y seguridad de endpoints en sector bancario.
+            </p>
+          </Card>
+          <Card className="p-8 border-border bg-card rounded-3xl hover:border-secondary/50 transition-colors">
+            <Code className="w-10 h-10 text-secondary mb-6" />
+            <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Desarrollo a Medida</h4>
+            <p className="text-muted-foreground text-sm font-body leading-relaxed">
+              Construcción de software escalable y eficiente enfocado en optimizar procesos de negocio.
+            </p>
           </Card>
         </div>
       </div>

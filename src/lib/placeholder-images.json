@@ -1,28 +1,22 @@
 {
   "placeholderImages": [
     {
-      "id": "project-1",
-      "description": "E-commerce platform interface",
-      "imageUrl": "https://picsum.photos/seed/devforge1/800/600",
-      "imageHint": "ecommerce dashboard"
+      "id": "project-angel",
+      "description": "Sistema Integral Clínica Farmacéutica El Ángel",
+      "imageUrl": "https://picsum.photos/seed/clinica-angel/800/600",
+      "imageHint": "medical dashboard"
     },
     {
-      "id": "project-2",
-      "description": "Financial analytics dashboard",
-      "imageUrl": "https://picsum.photos/seed/devforge2/800/600",
-      "imageHint": "data visualization"
+      "id": "project-bdf",
+      "description": "Soporte IT y Operaciones Banco de Finanzas",
+      "imageUrl": "https://picsum.photos/seed/bdf-it/800/600",
+      "imageHint": "it infrastructure"
     },
     {
-      "id": "project-3",
-      "description": "Cybersecurity monitor tool",
-      "imageUrl": "https://picsum.photos/seed/devforge3/800/600",
-      "imageHint": "security network"
-    },
-    {
-      "id": "project-4",
-      "description": "Cloud infrastructure diagram",
-      "imageUrl": "https://picsum.photos/seed/devforge4/800/600",
-      "imageHint": "cloud computing"
+      "id": "project-data",
+      "description": "Análisis de Datos con Power BI",
+      "imageUrl": "https://picsum.photos/seed/data-analysis/800/600",
+      "imageHint": "business intelligence"
     }
   ]
 }
