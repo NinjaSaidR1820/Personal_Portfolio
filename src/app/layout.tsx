@@ -21,7 +21,8 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased selection:bg-primary/30 selection:text-primary-foreground">
         <Navbar />
-        <div className="pt-0 sm:pt-20">
+        {/* pt-20 para Navbar superior en desktop, pb-32 para Navbar inferior en móvil */}
+        <div className="pt-0 sm:pt-20 pb-32 sm:pb-0">
           {children}
         </div>
       </body>
