@@ -2,6 +2,22 @@
 
 Este es el portafolio profesional de **Denis Said Rivas Sánchez**, egresado de Ingeniería en Sistemas, especializado en Desarrollo de Software, Análisis de Datos (Power BI) y Soporte IT.
 
+## Cómo ejecutar el proyecto
+
+### Localmente
+1. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
+2. **Configurar variables de entorno**:
+   Crea un archivo `.env` en la raíz con tus credenciales de Google AI (Gemini).
+3. **Iniciar servidor de desarrollo**:
+   ```bash
+   npm run dev
+   ```
+   El sitio estará disponible en `http://localhost:9002`.
+
+
 ## Características
 - **Multi-página**: Secciones divididas para una mejor navegación.
 - **Diseño Matte Dark**: Estética moderna, sobria y profesional.
@@ -23,4 +39,4 @@ Puedes encontrar detalles técnicos y el progreso del proyecto en la carpeta `/d
 - `agents.md`: Registro de tareas y estado actual.
 
 ---
-© 2024 Denis Said Rivas Sánchez | Ingeniería de Sistemas.
+© 2026 Denis Said Rivas Sánchez | Ingeniería de Sistemas.
