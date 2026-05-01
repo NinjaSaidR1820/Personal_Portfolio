@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -13,7 +12,7 @@ export function Projects() {
   const projectAngel = PlaceHolderImages.find(img => img.id === 'project-angel');
 
   return (
-    <section className="py-24 bg-background border-t border-border/50">
+    <section className="py-24 border-t border-white/5">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="mb-16 text-center">
           <h2 className="text-primary font-headline font-bold uppercase tracking-widest text-sm mb-4">Innovación en Acción</h2>
@@ -21,7 +20,7 @@ export function Projects() {
         </div>
 
         {/* Proyecto Estrella */}
-        <Card className="group overflow-hidden border-border bg-card hover:shadow-2xl transition-all duration-500 rounded-[2rem] mb-16">
+        <Card className="group overflow-hidden border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:shadow-2xl transition-all duration-500 rounded-[2rem] mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative aspect-video lg:aspect-auto overflow-hidden">
               <Image
@@ -57,7 +56,7 @@ export function Projects() {
 
               <div className="flex flex-wrap gap-2 mb-8">
                 {['Power BI', 'SQL Server', 'ETL', 'DataCube', 'C#'].map(tag => (
-                  <span key={tag} className="px-3 py-1 bg-muted rounded-lg text-xs font-bold text-muted-foreground border border-border">
+                  <span key={tag} className="px-3 py-1 bg-white/5 rounded-lg text-xs font-bold text-muted-foreground border border-white/10">
                     {tag}
                   </span>
                 ))}
@@ -74,21 +73,21 @@ export function Projects() {
 
         {/* Otros servicios/áreas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card className="p-8 border-border bg-card rounded-3xl hover:border-primary/50 transition-all hover:-translate-y-2">
+          <Card className="p-8 border-white/5 bg-white/[0.02] rounded-3xl hover:border-primary/50 transition-all hover:-translate-y-2">
             <BarChart3 className="w-10 h-10 text-primary mb-6" />
             <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Análisis de Datos</h4>
             <p className="text-muted-foreground text-sm font-body leading-relaxed">
               Transformación de datos crudos en dashboards accionables con Power BI para la toma de decisiones.
             </p>
           </Card>
-          <Card className="p-8 border-border bg-card rounded-3xl hover:border-accent/50 transition-all hover:-translate-y-2">
+          <Card className="p-8 border-white/5 bg-white/[0.02] rounded-3xl hover:border-accent/50 transition-all hover:-translate-y-2">
             <Database className="w-10 h-10 text-accent mb-6" />
             <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Soporte IT Corporativo</h4>
             <p className="text-muted-foreground text-sm font-body leading-relaxed">
               Administración de infraestructura crítica, Active Directory y seguridad de endpoints en sector bancario.
             </p>
           </Card>
-          <Card className="p-8 border-border bg-card rounded-3xl hover:border-secondary/50 transition-all hover:-translate-y-2">
+          <Card className="p-8 border-white/5 bg-white/[0.02] rounded-3xl hover:border-secondary/50 transition-all hover:-translate-y-2">
             <Code className="w-10 h-10 text-secondary mb-6" />
             <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Desarrollo a Medida</h4>
             <p className="text-muted-foreground text-sm font-body leading-relaxed">

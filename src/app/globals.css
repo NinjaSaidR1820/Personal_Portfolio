@@ -1,49 +1,29 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 255 15% 96%; /* #F4F3F7 */
-    --foreground: 0 0% 4%; /* #0a0a0a */
-    --card: 255 15% 98%;
-    --card-foreground: 0 0% 4%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4%;
-    --primary: 8 100% 50%; /* #FF2400 */
+    --background: 240 10% 4%; /* Matte Charcoal */
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 8 85% 55%; /* Matte Red */
     --primary-foreground: 0 0% 98%;
-    --secondary: 33 100% 47%; /* #f08200 */
+    --secondary: 33 85% 50%; /* Matte Orange */
     --secondary-foreground: 0 0% 98%;
-    --muted: 255 10% 90%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 210 100% 60%; /* #3399FF */
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 210 85% 60%; /* Matte Blue */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 255 10% 85%;
-    --input: 255 10% 85%;
-    --ring: 210 100% 60%;
-    --radius: 1rem;
-  }
-  .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 8 100% 50%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 33 100% 47%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 210 100% 60%;
-    --accent-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 210 100% 60%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 210 85% 60%;
+    --radius: 1.25rem;
   }
 }
 
@@ -52,7 +32,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
 }
 
@@ -67,4 +47,17 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, auto);
   }
+}
+
+/* Custom Matte Shadows */
+.matte-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.matte-card {
+  @apply bg-card border border-white/5 transition-all duration-300;
+}
+
+.matte-card:hover {
+  @apply border-white/10 bg-white/[0.04];
 }

@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -39,7 +38,7 @@ const skillCategories = [
       { name: 'Java', icon: <Cpu className="w-4 h-4 text-[#007396]" /> },
       { name: 'JavaScript', icon: <FileCode className="w-4 h-4 text-[#F7DF1E]" /> },
     ],
-    className: 'lg:col-span-2 bg-zinc-900',
+    className: 'lg:col-span-2 bg-white/[0.02]',
   },
   {
     title: 'Datos',
@@ -50,7 +49,7 @@ const skillCategories = [
       { name: 'Procesos ETL', icon: <Zap className="w-4 h-4 text-accent" /> },
       { name: 'Data Warehouse', icon: <Cloud className="w-4 h-4 text-accent" /> },
     ],
-    className: 'lg:col-span-2 bg-zinc-900',
+    className: 'lg:col-span-2 bg-white/[0.02]',
   },
   {
     title: 'Infraestructura IT',
@@ -61,7 +60,7 @@ const skillCategories = [
       { name: 'RDP', icon: <Server className="w-4 h-4 text-secondary" /> },
       { name: 'Troubleshooting', icon: <Terminal className="w-4 h-4 text-secondary" /> },
     ],
-    className: 'lg:col-span-2 bg-zinc-900',
+    className: 'lg:col-span-2 bg-white/[0.02]',
   },
   {
     title: 'Ciberseguridad',
@@ -71,7 +70,7 @@ const skillCategories = [
       { name: 'Nmap', icon: <Terminal className="w-4 h-4 text-primary" /> },
       { name: 'Vulnerabilidades', icon: <Shield className="w-4 h-4 text-primary" /> },
     ],
-    className: 'lg:col-span-2 bg-zinc-900',
+    className: 'lg:col-span-2 bg-white/[0.02]',
   },
 ];
 
@@ -99,35 +98,24 @@ const certifications = [
     title: 'CS50x – Harvard University',
     subtitle: 'Introduction to Computer Science',
     description: 'Certificado obtenido tras completar 10 problem sets, 9 laboratorios y un proyecto final. Adquirí fundamentos sólidos en algoritmos, C, Python, SQL, HTML, CSS, JavaScript y Git.',
-    link: '#',
     issuer: 'Harvard University'
   },
   {
     title: 'IBM – edX',
     subtitle: 'DA0130: Analyzing Data with Excel',
     description: 'Aprendí a limpiar, analizar y visualizar datos en Excel usando funciones estadísticas, dashboards y herramientas avanzadas.',
-    link: '#',
     issuer: 'IBM'
   },
   {
     title: 'Cisco Network Academy',
     subtitle: 'Cisco Certified Ethical Hacker (CEH) – (En Proceso)',
-    description: 'Identificación y explotación ética de vulnerabilidades en sistemas, redes y aplicaciones. Formación práctica en metodologías de pentesting, análisis de vulnerabilidades, técnicas de reconocimiento, explotación, escalamiento de privilegios y elaboración de reportes técnicos bajo estándares de ciberseguridad.',
-    link: '#',
+    description: 'Identificación y explotación ética de vulnerabilidades en sistemas, redes y aplicaciones.',
     issuer: 'Cisco'
   },
   {
     title: 'NicaSecurity – ¿How to Begin In Pentesting?',
     subtitle: 'Capacitación Especializada',
-    description: 'Participación en capacitación especializada sobre pruebas de penetración (pentesting) y seguridad ofensiva. Credencial: NICASEC-P-241116-DR.',
-    link: '#',
-    issuer: 'NicaSecurity'
-  },
-  {
-    title: 'NicaSecurity – Pentester Methodology – Phase 1',
-    subtitle: 'Network Recognition and Enumeration with NMap',
-    description: 'Participé en la primera fase del programa de formación en pentesting. Adquirí habilidades técnicas para identificar dispositivos activos en una red, recolectar información estratégica sobre puertos, servicios y sistemas operativos, y ejecutar escaneos estructurados. Credencial: NICASEC-P-241124-DR.',
-    link: '#',
+    description: 'Participación en capacitación especializada sobre pruebas de penetración (pentesting) y seguridad ofensiva.',
     issuer: 'NicaSecurity'
   }
 ];
@@ -136,7 +124,7 @@ export default function SkillsPage() {
   const [activeSkill, setActiveSkill] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-zinc-950 text-white dark py-12 px-6">
+    <main className="min-h-screen py-12 px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Section 1: Stack & Expertise */}
         <div className="mb-24">
@@ -145,20 +133,16 @@ export default function SkillsPage() {
               <h2 className="text-primary font-headline font-bold uppercase tracking-widest text-sm mb-4">Stack & Expertise</h2>
               <h3 className="text-4xl md:text-5xl font-black font-headline">Mi Ecosistema Tecnológico</h3>
             </div>
-            <p className="text-zinc-400 max-w-md font-body">
-              Dominio de herramientas que impulsan la eficiencia y seguridad empresarial. 
-              <span className="text-accent font-medium ml-1">Usa la IA para explorar detalles.</span>
-            </p>
           </div>
 
           <div className="bento-grid">
             {skillCategories.map((category, idx) => (
               <Card
                 key={idx}
-                className={`p-8 border-zinc-800 transition-all duration-300 hover:border-zinc-700 hover:shadow-2xl hover:shadow-primary/5 group ${category.className}`}
+                className={`p-8 border-white/5 bg-white/[0.02] transition-all duration-300 hover:border-white/10 ${category.className}`}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-zinc-800/50 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="p-3 bg-white/5 rounded-xl">
                     {category.icon}
                   </div>
                   <h4 className="text-2xl font-headline font-bold">{category.title}</h4>
@@ -168,11 +152,10 @@ export default function SkillsPage() {
                     <button
                       key={skill.name}
                       onClick={() => setActiveSkill(skill.name)}
-                      className="flex items-center gap-3 px-5 py-3 bg-zinc-800/40 rounded-full text-sm font-bold font-body border border-zinc-700/50 hover:bg-primary/20 hover:border-primary/50 hover:scale-105 transition-all group/btn"
+                      className="flex items-center gap-3 px-5 py-3 bg-white/5 rounded-full text-sm font-bold border border-white/5 hover:bg-primary/20 hover:border-primary/50 transition-all group/btn"
                     >
                       {skill.icon}
                       {skill.name}
-                      <Sparkles className="w-3 h-3 text-accent opacity-0 group-hover/btn:opacity-100 transition-opacity" />
                     </button>
                   ))}
                 </div>
@@ -181,7 +164,7 @@ export default function SkillsPage() {
           </div>
         </div>
 
-        {/* Section 2: Educacion y Estudios Profesionales */}
+        {/* Section 2: Educacion */}
         <div className="mb-24">
           <div className="mb-12">
             <h2 className="text-secondary font-headline font-bold uppercase tracking-widest text-sm mb-4">Formación Académica</h2>
@@ -190,19 +173,19 @@ export default function SkillsPage() {
           
           <div className="grid grid-cols-1 gap-6">
             {education.map((item, idx) => (
-              <Card key={idx} className="p-8 bg-zinc-900 border-zinc-800 hover:border-secondary/50 transition-colors">
+              <Card key={idx} className="p-8 bg-white/[0.02] border-white/5 hover:border-secondary/50 transition-colors">
                 <div className="flex flex-col md:flex-row justify-between gap-6">
                   <div className="flex gap-6">
-                    <div className="p-4 bg-zinc-800 rounded-2xl h-fit">
+                    <div className="p-4 bg-white/5 rounded-2xl h-fit">
                       {item.icon}
                     </div>
                     <div>
                       <h4 className="text-2xl font-black font-headline mb-2">{item.institution}</h4>
                       <p className="text-secondary font-bold text-lg mb-1">{item.degree}</p>
-                      <p className="text-zinc-400 font-medium italic">{item.status}</p>
+                      <p className="text-muted-foreground font-medium italic">{item.status}</p>
                     </div>
                   </div>
-                  <div className="flex flex-col md:items-end text-zinc-400 font-body gap-2">
+                  <div className="flex flex-col md:items-end text-muted-foreground font-body gap-2">
                     <div className="flex items-center gap-2 font-bold"><Calendar className="w-4 h-4 text-secondary" /> {item.period}</div>
                     <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-secondary" /> {item.location}</div>
                   </div>
@@ -221,19 +204,16 @@ export default function SkillsPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {certifications.map((cert, idx) => (
-              <Card key={idx} className="p-8 bg-zinc-900 border-zinc-800 hover:border-accent/50 transition-all group">
+              <Card key={idx} className="p-8 bg-white/[0.02] border-white/5 hover:border-accent/50 transition-all group">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-accent" />
                     <span className="text-xs font-black uppercase tracking-tighter text-accent/80">{cert.issuer}</span>
                   </div>
-                  <button className="text-zinc-500 hover:text-white transition-colors">
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
                 </div>
                 <h4 className="text-xl font-black font-headline mb-2 group-hover:text-accent transition-colors">{cert.title}</h4>
-                <p className="text-sm font-bold text-zinc-300 mb-4">{cert.subtitle}</p>
-                <p className="text-zinc-400 text-sm leading-relaxed font-body">
+                <p className="text-sm font-bold text-zinc-400 mb-4">{cert.subtitle}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed font-body">
                   {cert.description}
                 </p>
               </Card>
