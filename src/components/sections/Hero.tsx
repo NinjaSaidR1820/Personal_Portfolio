@@ -25,10 +25,10 @@ export function Hero() {
             </h1>
 
             <div className="mb-10 animate-in fade-in slide-in-from-left duration-700 delay-200">
-              <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-2">
                 Denis Said Rivas Sánchez
               </h2>
-              <p className="text-lg md:text-xl font-bold text-primary mb-4">
+              <p className="text-xl md:text-2xl font-bold text-primary mb-4">
                 Ingeniero de Sistemas, Developer & IT Support Analista
               </p>
               <p className="text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body">

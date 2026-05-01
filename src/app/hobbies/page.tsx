@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { Music, Camera, Trophy, Star, Heart, Quote } from 'lucide-react';
+import { Music, Trophy, Star, Heart, Quote } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -13,8 +13,8 @@ const achievements = [
     icon: <Trophy className="w-6 h-6 text-primary" />
   },
   {
-    title: 'Ganador Feria Nacional 2023',
-    description: '2.º Lugar en la categoría de Tecnología e Innovación con el Proyecto Clínica El Ángel.',
+    title: 'Feria Nacional 2023',
+    description: 'Reconocimiento en la categoría de Tecnología e Innovación con el Proyecto Clínica El Ángel.',
     icon: <Star className="w-6 h-6 text-accent" />
   }
 ];
@@ -24,28 +24,28 @@ const hobbyGallery = [
     id: 'hobby-guitar',
     title: 'Guitarra Acústica',
     category: 'Música',
-    description: 'La música y el código comparten una estructura lógica única.',
+    description: 'La música y el código comparten una estructura lógica única. Tocar la guitarra es mi forma de desconectar y crear.',
     icon: <Music className="w-4 h-4" />
   },
   {
     id: 'hobby-achievement',
     title: 'Disciplina & Retos',
     category: 'Crecimiento',
-    description: 'Superación constante en cada proyecto personal.',
+    description: 'La superación constante en proyectos personales me motiva a ser mejor ingeniero cada día.',
     icon: <Trophy className="w-4 h-4" />
   },
   {
     id: 'project-angel',
     title: 'Innovación Social',
     category: 'Impacto',
-    description: 'Creando soluciones que mejoran la vida de las personas.',
+    description: 'Crear soluciones tecnológicas que tienen un propósito real en la sociedad.',
     icon: <Heart className="w-4 h-4" />
   }
 ];
 
 export default function HobbiesPage() {
   return (
-    <main className="min-h-screen py-24 px-6">
+    <main className="min-h-screen py-24 px-6 pb-32">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-20 text-center">
           <h2 className="text-primary font-headline font-bold uppercase tracking-widest text-sm mb-4">Fuera del Código</h2>
@@ -55,14 +55,14 @@ export default function HobbiesPage() {
           </p>
         </div>
 
-        {/* Sección Logros */}
+        {/* Sección Logros (El "Tarjetero") */}
         <div className="mb-24">
           <h4 className="text-2xl font-black font-headline mb-8 flex items-center gap-3">
             <Trophy className="text-primary" /> Logros Destacados
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {achievements.map((item, idx) => (
-              <Card key={idx} className="p-8 bg-white/[0.02] border-white/5 hover:border-primary/50 transition-all">
+              <Card key={idx} className="p-8 bg-white/[0.02] border-white/5 hover:border-primary/50 transition-all matte-card">
                 <div className="p-3 bg-white/5 rounded-2xl w-fit mb-6">
                   {item.icon}
                 </div>
@@ -73,7 +73,7 @@ export default function HobbiesPage() {
           </div>
         </div>
 
-        {/* Sección Hobbies Galería */}
+        {/* Sección Hobbies Galería de Fotos */}
         <div className="space-y-12">
           <h4 className="text-2xl font-black font-headline mb-8 flex items-center gap-3">
             <Heart className="text-primary" /> Galería de Momentos
@@ -91,7 +91,7 @@ export default function HobbiesPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     data-ai-hint={galleryImage?.imageHint || 'lifestyle photography'}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="p-2 bg-primary/20 rounded-lg text-primary">
                         {hobby.icon}
