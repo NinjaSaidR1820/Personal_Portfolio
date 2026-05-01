@@ -14,13 +14,13 @@ export function Projects() {
   return (
     <section className="py-24 border-t border-white/5">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="mb-16 text-center">
+        <div className="mb-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="text-primary font-headline font-bold uppercase tracking-widest text-sm mb-4">Innovación en Acción</h2>
           <h3 className="text-4xl md:text-5xl font-black font-headline text-foreground">Projects</h3>
         </div>
 
         {/* Proyecto Estrella */}
-        <Card className="group overflow-hidden border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:shadow-2xl transition-all duration-500 rounded-[2rem] mb-16">
+        <Card className="group overflow-hidden border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:shadow-2xl transition-all duration-500 rounded-[2rem] mb-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative aspect-video lg:aspect-auto overflow-hidden">
               <Image
@@ -30,7 +30,7 @@ export function Projects() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 data-ai-hint="medical dashboard analytics"
               />
-              <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg z-20 font-bold text-sm">
+              <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg z-20 font-bold text-sm animate-pulse">
                 <Award className="w-4 h-4" /> Feria Nacional 2023
               </div>
             </div>
@@ -62,7 +62,7 @@ export function Projects() {
                 ))}
               </div>
 
-              <Button className="w-fit rounded-full bg-accent hover:bg-accent/90 text-white font-bold px-8" asChild>
+              <Button className="w-fit rounded-full bg-accent hover:bg-accent/90 text-white font-bold px-8 h-12 transition-all hover:scale-105" asChild>
                 <Link href="/works">
                   Explorar todos los proyectos <ExternalLink className="ml-2 w-4 h-4" />
                 </Link>
@@ -73,27 +73,38 @@ export function Projects() {
 
         {/* Otros servicios/áreas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card className="p-8 border-white/5 bg-white/[0.02] rounded-3xl hover:border-primary/50 transition-all hover:-translate-y-2">
-            <BarChart3 className="w-10 h-10 text-primary mb-6" />
-            <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Análisis de Datos</h4>
-            <p className="text-muted-foreground text-sm font-body leading-relaxed">
-              Transformación de datos crudos en dashboards accionables con Power BI para la toma de decisiones.
-            </p>
-          </Card>
-          <Card className="p-8 border-white/5 bg-white/[0.02] rounded-3xl hover:border-accent/50 transition-all hover:-translate-y-2">
-            <Database className="w-10 h-10 text-accent mb-6" />
-            <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Soporte IT Corporativo</h4>
-            <p className="text-muted-foreground text-sm font-body leading-relaxed">
-              Administración de infraestructura crítica, Active Directory y seguridad de endpoints en sector bancario.
-            </p>
-          </Card>
-          <Card className="p-8 border-white/5 bg-white/[0.02] rounded-3xl hover:border-secondary/50 transition-all hover:-translate-y-2">
-            <Code className="w-10 h-10 text-secondary mb-6" />
-            <h4 className="text-xl font-bold font-headline mb-3 text-foreground">Desarrollo a Medida</h4>
-            <p className="text-muted-foreground text-sm font-body leading-relaxed">
-              Construcción de software escalable y eficiente enfocado en optimizar procesos de negocio.
-            </p>
-          </Card>
+          {[
+            {
+              icon: <BarChart3 className="w-10 h-10 text-primary mb-6" />,
+              title: "Análisis de Datos",
+              desc: "Transformación de datos crudos en dashboards accionables con Power BI para la toma de decisiones.",
+              color: "hover:border-primary/50"
+            },
+            {
+              icon: <Database className="w-10 h-10 text-accent mb-6" />,
+              title: "Soporte IT Corporativo",
+              desc: "Administración de infraestructura crítica, Active Directory y seguridad de endpoints en sector bancario.",
+              color: "hover:border-accent/50"
+            },
+            {
+              icon: <Code className="w-10 h-10 text-secondary mb-6" />,
+              title: "Desarrollo a Medida",
+              desc: "Construcción de software escalable y eficiente enfocado en optimizar procesos de negocio.",
+              color: "hover:border-secondary/50"
+            }
+          ].map((service, idx) => (
+            <Card 
+              key={idx} 
+              className={`p-8 border-white/5 bg-white/[0.02] rounded-3xl ${service.color} transition-all hover:-translate-y-2 duration-500 animate-in fade-in slide-in-from-bottom-4`}
+              style={{ animationDelay: `${idx * 150}ms` }}
+            >
+              {service.icon}
+              <h4 className="text-xl font-bold font-headline mb-3 text-foreground">{service.title}</h4>
+              <p className="text-muted-foreground text-sm font-body leading-relaxed">
+                {service.desc}
+              </p>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
