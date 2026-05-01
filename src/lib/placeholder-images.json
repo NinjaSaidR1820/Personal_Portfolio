@@ -7,6 +7,12 @@
       "imageHint": "medical dashboard"
     },
     {
+      "id": "project-delafinca",
+      "description": "E-commerce Cafetería DeLaFinca",
+      "imageUrl": "https://picsum.photos/seed/delafinca/800/600",
+      "imageHint": "coffee shop"
+    },
+    {
       "id": "project-bdf",
       "description": "Soporte IT y Operaciones Banco de Finanzas",
       "imageUrl": "https://picsum.photos/seed/bdf-it/800/600",
