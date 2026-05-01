@@ -1,16 +1,15 @@
 
-import { Hero } from '@/components/sections/Hero';
-import { Projects } from '@/components/sections/Projects';
+import React from 'react';
+import { Contact } from '@/components/sections/Contact';
 
-export default function Home() {
+export default function ContactPage() {
   return (
     <main className="min-h-screen bg-background">
-      <Hero />
-      <Projects />
+      <Contact />
       <footer className="py-12 border-t border-border/50 bg-background text-center">
         <div className="container mx-auto px-6">
           <p className="text-muted-foreground text-sm font-body">
-            &copy; {new Date().getFullYear()} Denis Said Rivas | Ingeniero en Sistemas, Developer & IT Support Analista.
+            &copy; {new Date().getFullYear()} Denis Said Rivas | Ingeniería en Sistemas. Managua, Nicaragua.
           </p>
         </div>
       </footer>

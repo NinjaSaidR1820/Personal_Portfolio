@@ -1,20 +1,25 @@
 
+'use client';
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden bg-background">
+    <section className="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden bg-background">
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-accent rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto relative z-10 max-w-5xl text-center">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tight font-headline animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
-          Transformo <span className="text-primary italic">datos</span> y código en <br />
-          <span className="text-secondary">soluciones</span> de impacto.
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight font-headline animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+          Denis Said Rivas<br />
+          <span className="text-primary text-2xl md:text-3xl lg:text-4xl block mt-4 font-bold">
+            Ingeniero en Sistemas, Developer & IT Support Analista
+          </span>
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed font-body animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
@@ -23,9 +28,9 @@ export function Hero() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
           <Button size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 h-14 text-lg font-headline group" asChild>
-            <a href="#proyectos">
+            <Link href="/works">
               Ver mis proyectos <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </Button>
           <Button variant="outline" size="lg" className="rounded-full px-8 h-14 text-lg font-headline group border-2">
             Descargar CV <Download className="ml-2 w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
@@ -37,7 +42,7 @@ export function Hero() {
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="rounded-full hover:bg-muted hover:text-foreground transition-colors" asChild>
-              <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/NinjaSaidR1820" target="_blank" rel="noopener noreferrer">
                 <Github className="w-6 h-6" />
               </a>
             </Button>
