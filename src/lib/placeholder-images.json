@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "profile-photo",
+      "description": "Denis Said Rivas Sánchez - Foto de Perfil",
+      "imageUrl": "https://picsum.photos/seed/denis-profile/600/600",
+      "imageHint": "professional portrait"
+    },
+    {
       "id": "project-angel",
       "description": "Sistema Integral Clínica Farmacéutica El Ángel",
       "imageUrl": "https://picsum.photos/seed/clinica-angel/800/600",
@@ -13,16 +19,16 @@
       "imageHint": "coffee shop"
     },
     {
-      "id": "project-bdf",
-      "description": "Soporte IT y Operaciones Banco de Finanzas",
-      "imageUrl": "https://picsum.photos/seed/bdf-it/800/600",
-      "imageHint": "it infrastructure"
+      "id": "hobby-guitar",
+      "description": "Pasión por la Música - Guitarra",
+      "imageUrl": "https://picsum.photos/seed/guitar-hobby/800/600",
+      "imageHint": "acoustic guitar"
     },
     {
-      "id": "project-data",
-      "description": "Análisis de Datos con Power BI",
-      "imageUrl": "https://picsum.photos/seed/data-analysis/800/600",
-      "imageHint": "business intelligence"
+      "id": "hobby-achievement",
+      "description": "Logros Personales",
+      "imageUrl": "https://picsum.photos/seed/achievement/800/600",
+      "imageHint": "achievement trophy"
     }
   ]
 }

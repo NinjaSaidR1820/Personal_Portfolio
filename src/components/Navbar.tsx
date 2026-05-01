@@ -1,16 +1,16 @@
-
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { LayoutDashboard, Briefcase, Sparkles, Mail } from 'lucide-react';
+import { LayoutDashboard, Briefcase, Sparkles, Mail, Heart } from 'lucide-react';
 
 const navItems = [
   { href: '/', label: 'Home', icon: LayoutDashboard },
   { href: '/works', label: 'Works', icon: Briefcase },
   { href: '/skills', label: 'Skills', icon: Sparkles },
+  { href: '/hobbies', label: 'Hobbies', icon: Heart },
   { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
