@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: 'Denis Said Rivas Sánchez | Ingeniero de Sistemas, Desarrollador & Especialista IT',
@@ -25,6 +26,7 @@ export default function RootLayout({
         <div className="pt-0 sm:pt-20 pb-32 sm:pb-0">
           {children}
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );
