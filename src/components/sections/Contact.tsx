@@ -1,7 +1,9 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
+import { profile } from '@/data';
 
 export function Contact() {
   return (
@@ -17,30 +19,30 @@ export function Contact() {
           <Card className="p-6 bg-card border-border rounded-2xl flex flex-col items-center md:items-start">
             <Mail className="w-8 h-8 text-primary mb-4" />
             <span className="text-sm font-bold text-foreground mb-1 font-headline">Correo</span>
-            <a href="mailto:saidrivas2022@hotmail.com" className="text-muted-foreground hover:text-primary transition-colors font-body">saidrivas2022@hotmail.com</a>
+            <a href={`mailto:${profile.email}`} className="text-muted-foreground hover:text-primary transition-colors font-body">{profile.email}</a>
           </Card>
           
           <Card className="p-6 bg-card border-border rounded-2xl flex flex-col items-center md:items-start">
             <Phone className="w-8 h-8 text-accent mb-4" />
             <span className="text-sm font-bold text-foreground mb-1 font-headline">Teléfono</span>
-            <a href="tel:+50581138759" className="text-muted-foreground hover:text-primary transition-colors font-body">+505 8113 8759</a>
+            <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="text-muted-foreground hover:text-primary transition-colors font-body">{profile.phone}</a>
           </Card>
           
           <Card className="p-6 bg-card border-border rounded-2xl flex flex-col items-center md:items-start">
             <MapPin className="w-8 h-8 text-secondary mb-4" />
             <span className="text-sm font-bold text-foreground mb-1 font-headline">Ubicación</span>
-            <span className="text-muted-foreground font-body">Managua, Nicaragua</span>
+            <span className="text-muted-foreground font-body">{profile.location}</span>
           </Card>
         </div>
 
         <div className="flex flex-col items-center gap-6">
           <Button size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-white px-12 py-10 text-2xl font-black font-headline group shadow-xl shadow-primary/20" asChild>
-            <a href="mailto:saidrivas2022@hotmail.com">
+            <a href={`mailto:${profile.email}`}>
               Enviar un correo <Send className="ml-4 w-8 h-8 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
           </Button>
           
-          <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-accent font-bold transition-colors">
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-accent font-bold transition-colors">
             <Linkedin className="w-5 h-5" /> Conectar en LinkedIn
           </a>
         </div>
@@ -48,5 +50,3 @@ export function Contact() {
     </section>
   );
 }
-
-import { Card } from '@/components/ui/card';

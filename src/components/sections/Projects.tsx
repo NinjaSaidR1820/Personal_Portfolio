@@ -4,12 +4,11 @@ import React from 'react';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Award, Database, BarChart3, Code } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { ExternalLink, Award } from 'lucide-react';
 import Link from 'next/link';
+import { featuredProject, services } from '@/data';
 
 export function Projects() {
-  const projectAngel = PlaceHolderImages.find(img => img.id === 'project-angel');
 
   return (
     <section className="py-24 border-t border-white/5">
@@ -24,38 +23,40 @@ export function Projects() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative aspect-video lg:aspect-auto overflow-hidden">
               <Image
-                src={projectAngel?.imageUrl || ''}
-                alt="Proyecto Clínica El Ángel"
+                src={featuredProject.imageUrl}
+                alt={featuredProject.title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 data-ai-hint="medical dashboard analytics"
               />
-              <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg z-20 font-bold text-sm animate-pulse">
-                <Award className="w-4 h-4" /> Feria Nacional 2023
-              </div>
+              {featuredProject.award && (
+                <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg z-20 font-bold text-sm animate-pulse">
+                  <Award className="w-4 h-4" /> {featuredProject.award}
+                </div>
+              )}
             </div>
             <div className="p-8 lg:p-12 flex flex-col justify-center">
               <h4 className="text-3xl font-headline font-black mb-6 flex items-center gap-3">
-                <span className="text-primary">01.</span> Sistema Integral Clínica El Ángel
+                <span className="text-primary">{featuredProject.number}.</span> {featuredProject.title}
               </h4>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
                   <h5 className="font-bold text-sm uppercase text-accent mb-2">El Reto</h5>
                   <p className="text-muted-foreground text-sm font-body leading-relaxed">
-                    Modernizar la gestión de pacientes, recetas e inventarios médicos que generaban cuellos de botella críticos.
+                    {featuredProject.challenge}
                   </p>
                 </div>
                 <div>
                   <h5 className="font-bold text-sm uppercase text-secondary mb-2">El Impacto</h5>
                   <p className="text-muted-foreground text-sm font-body leading-relaxed">
-                    Reducción del 60% en tiempos de atención y trazabilidad total mediante procesos automatizados.
+                    {featuredProject.impact}
                   </p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {['Power BI', 'SQL Server', 'ETL', 'DataCube', 'C#'].map(tag => (
+                {featuredProject.technologies.map(tag => (
                   <span key={tag} className="px-3 py-1 bg-white/5 rounded-lg text-xs font-bold text-muted-foreground border border-white/10">
                     {tag}
                   </span>
@@ -73,26 +74,7 @@ export function Projects() {
 
         {/* Otros servicios/áreas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: <BarChart3 className="w-10 h-10 text-primary mb-6" />,
-              title: "Análisis de Datos",
-              desc: "Transformación de datos crudos en dashboards accionables con Power BI para la toma de decisiones.",
-              color: "hover:border-primary/50"
-            },
-            {
-              icon: <Database className="w-10 h-10 text-accent mb-6" />,
-              title: "Soporte IT Corporativo",
-              desc: "Administración de infraestructura crítica, Active Directory y seguridad de endpoints en sector bancario.",
-              color: "hover:border-accent/50"
-            },
-            {
-              icon: <Code className="w-10 h-10 text-secondary mb-6" />,
-              title: "Desarrollo a Medida",
-              desc: "Construcción de software escalable y eficiente enfocado en optimizar procesos de negocio.",
-              color: "hover:border-secondary/50"
-            }
-          ].map((service, idx) => (
+          {services.map((service, idx) => (
             <Card 
               key={idx} 
               className={`p-8 border-white/5 bg-white/[0.02] rounded-3xl ${service.color} transition-all hover:-translate-y-2 duration-500 animate-in fade-in slide-in-from-bottom-4`}
@@ -101,7 +83,7 @@ export function Projects() {
               {service.icon}
               <h4 className="text-xl font-bold font-headline mb-3 text-foreground">{service.title}</h4>
               <p className="text-muted-foreground text-sm font-body leading-relaxed">
-                {service.desc}
+                {service.description}
               </p>
             </Card>
           ))}
