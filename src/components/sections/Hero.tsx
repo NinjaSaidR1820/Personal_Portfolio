@@ -1,15 +1,18 @@
-'use client';
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { profile } from '@/data';
+import { getProfile } from '@/lib/queries';
 
-export function Hero() {
+export async function Hero() {
+  const profile = await getProfile();
   const profileImage = PlaceHolderImages.find(img => img.id === 'profile-photo');
+
+  if (!profile) {
+    return <div className="min-h-[90vh] flex items-center justify-center">Loading...</div>;
+  }
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden py-24 sm:py-12">

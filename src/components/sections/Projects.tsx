@@ -1,14 +1,18 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Award } from 'lucide-react';
 import Link from 'next/link';
-import { featuredProject, services } from '@/data';
+import { getFeaturedProject, getServices } from '@/lib/queries';
 
-export function Projects() {
+export async function Projects() {
+  const [featuredProject, services] = await Promise.all([
+    getFeaturedProject(),
+    getServices(),
+  ]);
+
+  if (!featuredProject) return null;
 
   return (
     <section className="py-24 border-t border-white/5">

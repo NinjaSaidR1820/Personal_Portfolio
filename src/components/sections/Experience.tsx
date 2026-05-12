@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Calendar, MapPin, Briefcase, CheckCircle2, Building2 } from 'lucide-react';
-import { experiences } from '@/data';
+import { getExperiences } from '@/lib/queries';
 
-export function Experience() {
+export async function Experience() {
+  const experiences = await getExperiences();
   return (
     <section className="py-24 bg-muted/10 border-t border-border/50">
       <div className="container mx-auto px-6 max-w-6xl">

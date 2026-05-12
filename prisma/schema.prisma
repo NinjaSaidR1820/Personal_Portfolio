@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Profile {
+  id          String @id @default("default")
+  name        String
+  title       String
+  tagline      String
+  bio         String
+  email       String
+  phone       String
+  location    String
+  linkedin    String
+  github      String
+  education   String
+  university  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Experience {
+  id          String @id @default(cuid())
+  role        String
+  company     String
+  period      String
+  location    String
+  type        String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  bullets     Bullet[]
+}
+
+model Bullet {
+  id          String @id @default(cuid())
+  content     String
+  experience  Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  experienceId String
+}
+
+model Project {
+  id            String @id @default(cuid())
+  title         String
+  number        String?
+  description   String
+  challenge     String
+  impact        String
+  technologies  String[]
+  imageUrl      String
+  isFeatured    Boolean @default(false)
+  award         String?
+  githubUrl     String?
+  liveUrl       String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Service {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  color       String
+  icon        String
+  order       Int @default(0)
+}
+
+model SkillCategory {
+  id        String @id @default(cuid())
+  title     String
+  icon      String
+  className String?
+  order     Int @default(0)
+  skills    Skill[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Skill {
+  id        String @id @default(cuid())
+  name      String
+  level     String?
+  yearsOfExperience Int?
+  category  SkillCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId String
+}
+
+model Certification {
+  id      String @id @default(cuid())
+  title   String
+  issuer  String
+  details String
+  date    String?
+}
+
+model Education {
+  id         String @id @default("default")
+  degree     String
+  institution String
+  year       String?
+}

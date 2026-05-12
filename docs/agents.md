@@ -1,6 +1,6 @@
 # Registro de Agentes y Seguimiento de Tareas
 
-## Estado Actual: **Phase 1: Re-arquitectura Profesional** (En Progreso)
+## Estado Actual: **Phase 2: Base de Datos** (En Progreso)
 
 ### Tareas Finalizadas ✅
 - [x] Configuración inicial Next.js + Tailwind.
@@ -20,7 +20,7 @@
 - [x] **Phase 1.4**: Refactorización de componentes para usar datos centralizados.
 
 ### Próximos Pasos / Tareas Pendientes 🚀
-- [ ] **Phase 1.5**: Separar Server/Client components correctamente.
+- [x] **Phase 1.5**: Separar Server/Client components (Hero y Projects ahora son Server Components).
 - [ ] Optimizar imágenes de placeholder con fotos reales de Denis.
 - [ ] Configurar analíticas de visitas (opcional).
 - [ ] Revisar accesibilidad (ARIA labels) en todos los componentes interactivos.
@@ -35,25 +35,29 @@
 - **V1.2**: Integración de certificaciones detalladas y educación.
 - **V1.1**: Estética Matte Dark aplicada globalmente.
 
-## Arquitectura v1.6
+## Arquitectura v1.7
 ```
 src/
 ├── app/                    # Pages + Layout
 ├── components/
 │   ├── ui/                 # ShadCN components
-│   ├── sections/           # Page sections (refactorizados)
+│   ├── sections/           # Page sections
+│   │   ├── Server/         # Server: Hero, AboutMe, Experience, Education, Contact, Projects
+│   │   └── Client/         # Client: Navbar, Skills, SkillExplanationDialog
 │   └── ...
 ├── data/                   # Datos centralizados
-│   ├── profile.ts
-│   ├── skills.tsx
-│   ├── experience.ts
-│   ├── projects.tsx
-│   ├── certifications.ts
-│   └── index.ts
 ├── types/                  # Tipos compartidos
-│   └── index.ts
 ├── contexts/               # (para futuras features)
 ├── hooks/                  # Custom hooks
 ├── lib/                    # Utils + helpers
 └── ai/                     # Genkit AI
 ```
+
+## Component Architecture v1.7
+**Server Components (sin 'use client'):**
+- Hero, AboutMe, Experience, Education, Contact, Projects
+
+**Client Components (con 'use client'):**
+- Navbar (useState, useEffect, usePathname)
+- Skills (useState para skill selection)
+- SkillExplanationDialog (useState, useEffect, AI calls)
