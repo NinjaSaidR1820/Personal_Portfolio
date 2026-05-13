@@ -1,6 +1,6 @@
 # Registro de Agentes y Seguimiento de Tareas
 
-## Estado Actual: **Phase 3: Admin Panel** (En Progreso - Login con problemas)
+## Estado Actual: **Phase 3: Admin Panel** (completado) → **Phase 4: Testing & Polish** (siguiente)
 
 ### Tareas Finalizadas ✅
 - [x] Configuración inicial Next.js + Tailwind.
@@ -28,7 +28,8 @@
 - [x] **Phase 3.6**: Upload de imágenes a `public/images/`.
 
 ### Pendiente / Necesita Revisión ⚠️
-- [ ] **Login de Admin**: El middleware está causando loops de redirección. Necesita revisión y fix.
+- [x] **Login de Admin**: Corregido con route group `(dashboard)` (login fuera del layout que exige sesión) y revisión de middleware.
+- [x] **Modales CRUD admin**: Los formularios en overlay `fixed` estaban dentro de `<main className="overflow-auto">`, lo que recortaba capas y bloqueaba edición; ahora usan `ModalPortal` → `document.body`.
 - [ ] Optimizar imágenes de placeholder con fotos reales de Denis.
 - [ ] Configurar analíticas de visitas (Vercel Analytics).
 - [ ] Revisar accesibilidad (ARIA labels) en todos los componentes interactivos.
@@ -41,19 +42,21 @@
 ## Log de Cambios (Últimos)
 - **V1.7**: Phase 2 - Base de datos con Vercel Postgres + Prisma.
 - **V1.8**: Phase 3 - Admin panel setup (WIP).
+- **V1.9**: Fix login (route group `(dashboard)`); modales CRUD con `ModalPortal` para evitar clipping por `overflow` en layout admin.
 
-## Arquitectura v1.8
+## Arquitectura v1.9
 ```
 src/
 ├── app/
-│   ├── admin/              # Panel de administración (WIP)
-│   │   ├── login/          # Login page
-│   │   ├── profile/       # Edit profile
-│   │   ├── experiences/   # CRUD experiencias
-│   │   ├── projects/      # CRUD proyectos
-│   │   ├── certifications/ # CRUD certificaciones
-│   │   ├── skills/        # CRUD habilidades
-│   │   └── images/        # Gestor de imágenes
+│   ├── admin/              # Panel de administración
+│   │   ├── login/          # Login (sin layout de sesión)
+│   │   └── (dashboard)/    # Rutas con sidebar + auth
+│   │       ├── profile/    # Editar perfil
+│   │       ├── experiences/
+│   │       ├── projects/
+│   │       ├── certifications/
+│   │       ├── skills/
+│   │       └── images/
 │   ├── api/
 │   │   ├── auth/          # NextAuth handlers
 │   │   ├── admin/         # API routes CRUD
@@ -72,5 +75,5 @@ src/
 ```
 
 ## Pending Issues
-- El login en `/admin/login` no funciona correctamente (loop de redirección en middleware)
-- Necesita debugging del middleware y cookie handling
+- Phase 4: prueba manual completa de cada CRUD en producción/preview.
+- Phase 4: ARIA labels y Vercel Analytics (pendientes de plan).

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Plus, Pencil, Trash2 } from "lucide-react"
+import { ModalPortal } from "@/components/admin/ModalPortal"
 
 interface Bullet { id: string; content: string }
 interface Experience { id: string; role: string; company: string; period: string; location: string; type: string; description: string; bullets: Bullet[] }
@@ -65,7 +66,8 @@ function ExperienceForm({ initial, onSave, onClose }: { initial: Experience | nu
   const [form, setForm] = useState({ role: initial?.role || "", company: initial?.company || "", period: initial?.period || "", location: initial?.location || "", type: initial?.type || "Corporativo", description: initial?.description || "", bullets: initial?.bullets.map(b => b.content).join("\n") || "" })
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
+    <ModalPortal>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[100]" onClick={onClose}>
       <div className="bg-[hsl(240,10%,8%)] border border-white/5 rounded-2xl p-8 w-full max-w-lg max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
         <h3 className="text-lg font-bold text-foreground mb-6">{initial ? "Editar" : "Nueva"} Experiencia</h3>
         <div className="space-y-4">
@@ -106,5 +108,6 @@ function ExperienceForm({ initial, onSave, onClose }: { initial: Experience | nu
         </div>
       </div>
     </div>
+    </ModalPortal>
   )
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Plus, Pencil, Trash2 } from "lucide-react"
+import { ModalPortal } from "@/components/admin/ModalPortal"
 
 interface Skill { id: string; name: string }
 interface Category { id: string; title: string; icon: string; className: string | null; order: number; skills: Skill[] }
@@ -67,7 +68,8 @@ function SkillsForm({ initial, onSave, onClose }: { initial: Category | null; on
   const [form, setForm] = useState({ title: initial?.title || "", icon: initial?.icon || "Code2", className: initial?.className || "", order: initial?.order ?? 0, skills: initial?.skills.map(s => s.name).join("\n") || "" })
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
+    <ModalPortal>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[100]" onClick={onClose}>
       <div className="bg-[hsl(240,10%,8%)] border border-white/5 rounded-2xl p-8 w-full max-w-lg" onClick={e => e.stopPropagation()}>
         <h3 className="text-lg font-bold text-foreground mb-6">{initial ? "Editar" : "Nueva"} Categoría</h3>
         <div className="space-y-4">
@@ -101,5 +103,6 @@ function SkillsForm({ initial, onSave, onClose }: { initial: Category | null; on
         </div>
       </div>
     </div>
+    </ModalPortal>
   )
 }

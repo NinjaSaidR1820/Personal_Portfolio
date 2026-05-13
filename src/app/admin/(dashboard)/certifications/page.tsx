@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Plus, Pencil, Trash2 } from "lucide-react"
+import { ModalPortal } from "@/components/admin/ModalPortal"
 
 interface Certification { id: string; title: string; issuer: string; details: string; date: string | null }
 
@@ -64,7 +65,8 @@ function CertificationForm({ initial, onSave, onClose }: { initial: Certificatio
   const [form, setForm] = useState({ title: initial?.title || "", issuer: initial?.issuer || "", details: initial?.details || "", date: initial?.date || "" })
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
+    <ModalPortal>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[100]" onClick={onClose}>
       <div className="bg-[hsl(240,10%,8%)] border border-white/5 rounded-2xl p-8 w-full max-w-lg" onClick={e => e.stopPropagation()}>
         <h3 className="text-lg font-bold text-foreground mb-6">{initial ? "Editar" : "Nueva"} Certificación</h3>
         <div className="space-y-4">
@@ -82,5 +84,6 @@ function CertificationForm({ initial, onSave, onClose }: { initial: Certificatio
         </div>
       </div>
     </div>
+    </ModalPortal>
   )
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Plus, Pencil, Trash2 } from "lucide-react"
+import { ModalPortal } from "@/components/admin/ModalPortal"
 
 interface Project { id: string; title: string; number: string | null; description: string; challenge: string; impact: string; technologies: string[]; imageUrl: string; isFeatured: boolean; award: string | null }
 
@@ -67,7 +68,8 @@ function ProjectForm({ initial, onSave, onClose }: { initial: Project | null; on
   const [form, setForm] = useState({ title: initial?.title || "", number: initial?.number || "", description: initial?.description || "", challenge: initial?.challenge || "", impact: initial?.impact || "", technologies: initial?.technologies?.join(", ") || "", imageUrl: initial?.imageUrl || "", isFeatured: initial?.isFeatured || false, award: initial?.award || "" })
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
+    <ModalPortal>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[100]" onClick={onClose}>
       <div className="bg-[hsl(240,10%,8%)] border border-white/5 rounded-2xl p-8 w-full max-w-lg max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
         <h3 className="text-lg font-bold text-foreground mb-6">{initial ? "Editar" : "Nuevo"} Proyecto</h3>
         <div className="space-y-4">
@@ -100,5 +102,6 @@ function ProjectForm({ initial, onSave, onClose }: { initial: Project | null; on
         </div>
       </div>
     </div>
+    </ModalPortal>
   )
 }
