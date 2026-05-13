@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import Link from "next/link"
+import { signOutAdmin } from "./actions"
 import { Home, Briefcase, FolderKanban, Award, BarChart3, ImageIcon, LogOut, User } from "lucide-react"
 
 const navItems = [
@@ -39,7 +40,7 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
             )
           })}
         </nav>
-        <form action="/api/auth/signout" method="POST" className="mt-auto">
+        <form action={signOutAdmin} className="mt-auto">
           <button type="submit" className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all w-full">
             <LogOut className="w-4 h-4" />
             Cerrar Sesión
