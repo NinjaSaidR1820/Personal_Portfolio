@@ -2,6 +2,7 @@ import "dotenv/config";
 import { PrismaClient } from "../src/generated/prisma";
 import { PrismaPg } from "@prisma/adapter-pg";
 import pg from "pg";
+import { hash } from "bcryptjs";
 
 const connectionString = process.env.DATABASE_URL;
 if (!connectionString) throw new Error("DATABASE_URL not set");
@@ -128,9 +129,9 @@ async function main() {
   });
 
   const services = [
-    { title: "Desarrollo Web", description: "Interfaces modernas y responsivas.", color: "hover:bg-primary/5", icon: "Globe" },
-    { title: "Ciberseguridad", description: "Auditorías de seguridad.", color: "hover:bg-secondary/5", icon: "Shield" },
-    { title: "Análisis de Datos", description: "Dashboards interactivos con Power BI.", color: "hover:bg-accent/5", icon: "BarChart3" },
+    { title: "Desarrollo a Medida", description: "Construcción de software escalable y eficiente enfocado en optimizar procesos de negocio.", color: "hover:border-secondary/50", icon: "Code" },
+    { title: "Soporte IT Corporativo", description: "Administración de infraestructura crítica, Active Directory y seguridad de endpoints en sector bancario.", color: "hover:border-accent/50", icon: "Database" },
+    { title: "Análisis de Datos", description: "Transformación de datos crudos en dashboards accionables con Power BI para la toma de decisiones.", color: "hover:border-primary/50", icon: "BarChart3" },
   ];
 
   for (let i = 0; i < services.length; i++) {
@@ -138,6 +139,17 @@ async function main() {
       data: { title: services[i].title, description: services[i].description, color: services[i].color, icon: services[i].icon, order: i },
     });
   }
+
+  const passwordHash = await hash("admin123", 12)
+  await prisma.admin.upsert({
+    where: { email: "saidrivas2022@hotmail.com" },
+    update: { passwordHash },
+    create: {
+      email: "saidrivas2022@hotmail.com",
+      passwordHash,
+      name: "Denis Said Rivas Sánchez",
+    },
+  })
 
   console.log("Database seeded successfully!");
 }
