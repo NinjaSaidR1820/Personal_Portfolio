@@ -1,14 +1,18 @@
-'use client';
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { getProfile } from '@/lib/queries';
 
-export function Hero() {
+export async function Hero() {
+  const profile = await getProfile();
   const profileImage = PlaceHolderImages.find(img => img.id === 'profile-photo');
+
+  if (!profile) {
+    return <div className="min-h-[90vh] flex items-center justify-center">Loading...</div>;
+  }
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden py-24 sm:py-12">
@@ -22,19 +26,19 @@ export function Hero() {
           <div className="order-2 lg:order-1 space-y-8">
             <div className="space-y-4 animate-in fade-in slide-in-from-left duration-700">
               <h1 className="text-4xl md:text-6xl font-black tracking-tight font-headline leading-tight">
-                Transformo datos y código en <span className="text-primary">soluciones tecnológicas</span> que impulsan resultados.
+                {profile.tagline.split('soluciones')[0]}<span className="text-primary">soluciones tecnológicas</span> que impulsan resultados.
               </h1>
             </div>
 
             <div className="animate-in fade-in slide-in-from-left duration-700 delay-200">
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-2">
-                Denis Said Rivas Sánchez
+                {profile.name}
               </h2>
               <p className="text-xl md:text-2xl font-bold text-primary mb-4">
-                Ingeniero de Sistemas, Developer & IT Support Analista
+                {profile.title}
               </p>
               <p className="text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body">
-                Egresado de la UNI. Combino mi pasión por el desarrollo de software, la ciberseguridad y el análisis de datos para construir infraestructuras sólidas y aplicaciones eficientes.
+                {profile.bio}
               </p>
             </div>
 
@@ -49,12 +53,12 @@ export function Hero() {
               </Button>
               <div className="flex items-center gap-3">
                 <Button variant="ghost" size="icon" className="rounded-full hover:bg-white/5 hover:text-primary transition-colors" asChild>
-                  <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer">
+                  <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
                     <Linkedin className="w-6 h-6" />
                   </a>
                 </Button>
                 <Button variant="ghost" size="icon" className="rounded-full hover:bg-white/5 hover:text-white transition-colors" asChild>
-                  <a href="https://github.com/NinjaSaidR1820" target="_blank" rel="noopener noreferrer">
+                  <a href={profile.github} target="_blank" rel="noopener noreferrer">
                     <Github className="w-6 h-6" />
                   </a>
                 </Button>
@@ -68,7 +72,7 @@ export function Hero() {
               <div className="relative w-full h-full rounded-[3rem] overflow-hidden border-4 border-white/5 matte-shadow group transition-all duration-500 hover:rotate-2">
                 <Image
                   src={profileImage?.imageUrl || ''}
-                  alt="Denis Said Rivas Sánchez"
+                  alt={profile.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   data-ai-hint="professional portrait"

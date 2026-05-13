@@ -2,24 +2,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { GraduationCap, Award, CheckCircle2 } from 'lucide-react';
-
-const certifications = [
-  {
-    title: 'CS50x: Intro to Computer Science',
-    issuer: 'Harvard University',
-    details: 'Fundamentos sólidos en algoritmos, estructuras de datos y lógica.',
-  },
-  {
-    title: 'Data Analysis Professional',
-    issuer: 'IBM',
-    details: 'Dominio en limpieza, visualización y análisis estadístico de datos.',
-  },
-  {
-    title: 'Pentesting & Offensive Security',
-    issuer: 'NicaSecurity',
-    details: 'Seguridad ofensiva, reconocimiento de redes y auditoría.',
-  },
-];
+import { certifications, education } from '@/data';
 
 export function Education() {
   return (
@@ -35,8 +18,8 @@ export function Education() {
             <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-2xl border border-border">
               <GraduationCap className="w-10 h-10 text-accent" />
               <div>
-                <span className="block font-bold">Ing. en Sistemas</span>
-                <span className="text-xs text-muted-foreground uppercase font-bold tracking-tighter">Univ. Nacional de Ingeniería</span>
+                <span className="block font-bold">{education.degree}</span>
+                <span className="text-xs text-muted-foreground uppercase font-bold tracking-tighter">{education.institution}</span>
               </div>
             </div>
           </div>
